@@ -8,14 +8,43 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.JOptionPane;
 
-public class TVShowEpisodeInfoDisplayer {
-	
+public class TVShowEpisodeInfoDisplayer implements ActionListener{
+	JButton button = new JButton();
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JTextField field = new JTextField();
+	String results;
 	public TVShowEpisodeInfoDisplayer() {
+		frame.add(panel);
+		panel.add(field);
+		panel.add(button);
+		button.setText("submit");
+		frame.setSize(500,100);
 		
+		frame.setVisible(true);
+		button.setVisible(true);
+		field.setVisible(true);
+		button.addActionListener(this);
 	}
-
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		JButton souce = (JButton) e.getSource();
+		if(souce == button )
+		{
+			results = getShowEpisodeData(field.getText());
+			JOptionPane.showMessageDialog(panel, results);
+		}
+	}
 	
 	
 	
