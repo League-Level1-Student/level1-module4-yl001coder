@@ -39,11 +39,12 @@ public class Jeopardy implements ActionListener {
 	private JLabel scoreBox = new JLabel("0");
 	private int buttonCount = 0;
 	private Sound jeopardyThemeClip;
+	JFrame frame = new JFrame();
 
 
 
 	public void run() {
-		JFrame frame = new JFrame();
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		quizPanel = new JPanel();
 		frame.setLayout(new BorderLayout());

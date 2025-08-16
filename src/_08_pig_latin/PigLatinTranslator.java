@@ -1,6 +1,20 @@
 package _08_pig_latin;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class PigLatinTranslator {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class PigLatinTranslator implements ActionListener{
+	JTextField english = new JTextField();
+	JTextField piglatin = new JTextField();
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton transpig = new JButton(">>");
+	JButton transeng = new JButton("<<");
+	JButton speak = new JButton("speak");
+	
     /**
      * Method to translate a english to pig latin.
      * 
@@ -8,7 +22,20 @@ public class PigLatinTranslator {
      *            The sentence in English
      * @return The pig latin version
      */
-    public static String translateEnglishTioPigLatin(String s) {
+	public void run()
+	{
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		panel.add(english);
+		panel.add(transpig);
+		panel.add(transeng);
+		panel.add(piglatin);
+		panel.add(speak);
+		frame.add(panel);
+		transpig.addActionListener(this);
+		transeng.addActionListener(this);
+		frame.setVisible(true);
+	}
+    public static String translateEnglishToPigLatin(String s) {
         String latin = "";
         int i = 0;
         while (i < s.length()) {
@@ -120,4 +147,16 @@ public class PigLatinTranslator {
                 return i;
         return 0;
     }
+   public void actionPerformed(ActionEvent e) {
+	   JButton buttonPressed = (JButton) e.getSource();
+	   if(buttonPressed == transpig)
+	   {
+		   String eng = english.getText();
+		   piglatin.setText(translateEnglishToPigLatin(eng));
+	   }
+	   else if(buttonPressed == transeng) {
+		   String latin = piglatin.getText();
+		   english.setText(translatePigLatinToEnglish(latin));
+	   }
+   }
 }
