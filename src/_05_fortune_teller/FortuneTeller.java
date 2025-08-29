@@ -5,9 +5,11 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import game_tools.Sound;
@@ -15,9 +17,10 @@ import game_tools.Sound;
 public class FortuneTeller extends JPanel implements Runnable, MouseListener {
 
     JFrame frame = new JFrame();
+    JPanel panel = new JPanel();
 
-    int frameWidth = 500;
-    int frameHeight = 500;
+    int frameWidth = 450;
+    int frameHeight = 450;
 
     FortuneTeller() throws Exception {
         // 1. Choose an image for your fortune teller and put it in your default package
@@ -36,6 +39,7 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
     public void mousePressed(MouseEvent e) {
         int mouseX = e.getX();
         int mouseY = e.getY();
+        System.out.println(mouseX + ", " + mouseY);
         
         // 5. Print the mouseX variable
         
@@ -53,6 +57,25 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
             // 9. Play the sound
             
             // 10. Insert your completed Magic 8 ball code here
+        	int random = new Random().nextInt(4);
+    		System.out.println(random);
+    		String s = JOptionPane.showInputDialog("Ask a question to determine your future.....", panel);
+    		if(random == 0)
+    		{
+    			System.out.println("yes..");
+    		}
+    		else if(random == 1)
+    		{
+    			System.out.println("NO!");
+    		}
+    		else if(random == 2)
+    		{
+    			System.out.println("Maybe you should ask Google??");
+    		}
+    		else if(random == 3)
+    		{
+    			System.out.println("Ask again later..");
+    		}
             
         }
 

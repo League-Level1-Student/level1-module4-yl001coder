@@ -4,11 +4,18 @@ package _05_fortune_teller;
  *    Level 1
  */
 
+import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 
 import java.util.Random;
 
 public class Magic8Ball {
-
+	JPanel panel = new JPanel();
+	
+	public void main()
+	{
+		
+	}
 	// 1. Make a main method that includes all the steps below….
 
 	// 2. Make a variable that will hold a random number and put a random number into this variable using "new Random().nextInt(4)"
