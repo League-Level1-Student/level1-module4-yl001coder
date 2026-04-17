@@ -25,6 +25,7 @@ public class Calculator implements ActionListener{
 	String result;
 	void main()
 	{
+		
 		frame.setSize(700,500);
 		panel.add(div);
 		panel.add(mul);

@@ -2,11 +2,13 @@ package _11_lights_out;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.Label;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JFrame;
 
 /**
  * 
@@ -20,6 +22,7 @@ import javax.swing.JPanel;
  */
 public class LightsOut implements MouseListener {
 
+	JFrame frame = new Frame();
 	JPanel gamePanel = new JPanel();
 	JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12,label13,label14,label15,label16,label17,label18,label19,label20,label21,label22,label23,label24,label25 = new JLabel();
 	
@@ -85,6 +88,60 @@ public class LightsOut implements MouseListener {
 		label24.setText("23");
 		label25.setText("24");
 		
+		label25.setBackground(Color.LIGHT_GRAY);
+		label1.setBackground(Color.LIGHT_GRAY);
+		label2.setBackground(Color.LIGHT_GRAY);
+		label3.setBackground(Color.LIGHT_GRAY);
+		label4.setBackground(Color.LIGHT_GRAY);
+		label5.setBackground(Color.LIGHT_GRAY);
+		label6.setBackground(Color.LIGHT_GRAY);
+		label7.setBackground(Color.LIGHT_GRAY);
+		label8.setBackground(Color.LIGHT_GRAY);
+		label9.setBackground(Color.LIGHT_GRAY);
+		label10.setBackground(Color.LIGHT_GRAY);
+		label11.setBackground(Color.LIGHT_GRAY);
+		label12.setBackground(Color.LIGHT_GRAY);
+		label13.setBackground(Color.LIGHT_GRAY);
+		label14.setBackground(Color.LIGHT_GRAY);
+		label15.setBackground(Color.LIGHT_GRAY);
+		label16.setBackground(Color.LIGHT_GRAY);
+		label17.setBackground(Color.LIGHT_GRAY);
+		label18.setBackground(Color.LIGHT_GRAY);
+		label19.setBackground(Color.LIGHT_GRAY);
+		label20.setBackground(Color.LIGHT_GRAY);
+		label21.setBackground(Color.LIGHT_GRAY);
+		label22.setBackground(Color.LIGHT_GRAY);
+		label23.setBackground(Color.LIGHT_GRAY);
+		label24.setBackground(Color.LIGHT_GRAY);
+	
+		label1.addMouseListener(this);
+		label2.addMouseListener(this);
+		label3.addMouseListener(this);
+		label4.addMouseListener(this);
+		label5.addMouseListener(this);
+		label6.addMouseListener(this);
+		label7.addMouseListener(this);
+		label8.addMouseListener(this);
+		label9.addMouseListener(this);
+		label10.addMouseListener(this);
+		label11.addMouseListener(this);
+		label12.addMouseListener(this);
+		label13.addMouseListener(this);
+		label14.addMouseListener(this);
+		label15.addMouseListener(this);
+		label16.addMouseListener(this);
+		label17.addMouseListener(this);
+		label18.addMouseListener(this);
+		label19.addMouseListener(this);
+		label20.addMouseListener(this);
+		label21.addMouseListener(this);
+		label22.addMouseListener(this);
+		label23.addMouseListener(this);
+		label24.addMouseListener(this);
+		label25.addMouseListener(this);
+		
+		frame.setSize(800,800);
+		frame.add(gamePanel);
 		
 			//4. Set the background of each light to LIGHT_GRAY
 			// - you will also have to set the background to opaque.
@@ -101,6 +158,8 @@ public class LightsOut implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		
+		
 		/** PART 2: TOGGLE NEIGHBORING LIGHTS **/
 		// 1. Get the light that was clicked on `(JLabel) e.getSource`
 
