@@ -22,7 +22,7 @@ import javax.swing.JFrame;
  */
 public class LightsOut implements MouseListener {
 
-	JFrame frame = new Frame();
+	JFrame frame = new JFrame();
 	JPanel gamePanel = new JPanel();
 	JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12,label13,label14,label15,label16,label17,label18,label19,label20,label21,label22,label23,label24,label25 = new JLabel();
 	
