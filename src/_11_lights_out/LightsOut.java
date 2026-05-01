@@ -26,140 +26,54 @@ public class LightsOut implements MouseListener {
 	JPanel gamePanel = new JPanel();
 	JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12,label13,label14,label15,label16,label17,label18,label19,label20,label21,label22,label23,label24,label25 = new JLabel();
 	
-
-	public LightsOut() {
-
+//labels! :D
+	public void run() {
+		
 		/** PART 1. CREATE YOUR LIGHT BOARD **/
 		//1. Make your gamePanel a 5x5 grid with setLayout(new GridLayout(5, 5));
 		gamePanel.setLayout(new GridLayout(5,5));
 		
-		gamePanel.add(label1);
-		gamePanel.add(label2);
-		gamePanel.add(label3);
-		gamePanel.add(label4);
-		gamePanel.add(label5);
-		gamePanel.add(label6);
-		gamePanel.add(label7);
-		gamePanel.add(label8);
-		gamePanel.add(label9);
-		gamePanel.add(label10);
-		gamePanel.add(label11);
-		gamePanel.add(label12);
-		gamePanel.add(label13);
-		gamePanel.add(label14);
-		gamePanel.add(label15);
-		gamePanel.add(label16);
-		gamePanel.add(label17);
-		gamePanel.add(label18);
-		gamePanel.add(label19);
-		gamePanel.add(label20);
-		gamePanel.add(label21);
-		gamePanel.add(label22);
-		gamePanel.add(label23);
-		gamePanel.add(label24);
-		gamePanel.add(label25);
+		for(int i = 0; i < 25; i ++) {
+			JLabel light = new JLabel();
+			light.setText(String.valueOf(i));
+			light.setBackground(Color.LIGHT_GRAY);
+			light.addMouseListener(this);
+			gamePanel.add(light);
+			light.setOpaque(true);
+			
+		}
+		frame.pack();
 		
 			//2. Add 25 JLabels to your gamePanel (these are your lights)
 
-			//3. Use setText() to add a position number to each light (0-24).
-		label1.setText("0");
-		label2.setText("1");
-		label3.setText("2");
-		label4.setText("3");
-		label5.setText("4");
-		label6.setText("5");
-		label7.setText("6");
-		label8.setText("7");
-		label9.setText("8");
-		label10.setText("9");
-		label11.setText("10");
-		label12.setText("11");
-		label13.setText("12");
-		label14.setText("13");
-		label15.setText("14");
-		label16.setText("15");
-		label17.setText("16");
-		label18.setText("17");
-		label19.setText("18");
-		label20.setText("19");
-		label21.setText("20");
-		label22.setText("21");
-		label23.setText("22");
-		label24.setText("23");
-		label25.setText("24");
-		
-		label25.setBackground(Color.LIGHT_GRAY);
-		label1.setBackground(Color.LIGHT_GRAY);
-		label2.setBackground(Color.LIGHT_GRAY);
-		label3.setBackground(Color.LIGHT_GRAY);
-		label4.setBackground(Color.LIGHT_GRAY);
-		label5.setBackground(Color.LIGHT_GRAY);
-		label6.setBackground(Color.LIGHT_GRAY);
-		label7.setBackground(Color.LIGHT_GRAY);
-		label8.setBackground(Color.LIGHT_GRAY);
-		label9.setBackground(Color.LIGHT_GRAY);
-		label10.setBackground(Color.LIGHT_GRAY);
-		label11.setBackground(Color.LIGHT_GRAY);
-		label12.setBackground(Color.LIGHT_GRAY);
-		label13.setBackground(Color.LIGHT_GRAY);
-		label14.setBackground(Color.LIGHT_GRAY);
-		label15.setBackground(Color.LIGHT_GRAY);
-		label16.setBackground(Color.LIGHT_GRAY);
-		label17.setBackground(Color.LIGHT_GRAY);
-		label18.setBackground(Color.LIGHT_GRAY);
-		label19.setBackground(Color.LIGHT_GRAY);
-		label20.setBackground(Color.LIGHT_GRAY);
-		label21.setBackground(Color.LIGHT_GRAY);
-		label22.setBackground(Color.LIGHT_GRAY);
-		label23.setBackground(Color.LIGHT_GRAY);
-		label24.setBackground(Color.LIGHT_GRAY);
 	
-		label1.addMouseListener(this);
-		label2.addMouseListener(this);
-		label3.addMouseListener(this);
-		label4.addMouseListener(this);
-		label5.addMouseListener(this);
-		label6.addMouseListener(this);
-		label7.addMouseListener(this);
-		label8.addMouseListener(this);
-		label9.addMouseListener(this);
-		label10.addMouseListener(this);
-		label11.addMouseListener(this);
-		label12.addMouseListener(this);
-		label13.addMouseListener(this);
-		label14.addMouseListener(this);
-		label15.addMouseListener(this);
-		label16.addMouseListener(this);
-		label17.addMouseListener(this);
-		label18.addMouseListener(this);
-		label19.addMouseListener(this);
-		label20.addMouseListener(this);
-		label21.addMouseListener(this);
-		label22.addMouseListener(this);
-		label23.addMouseListener(this);
-		label24.addMouseListener(this);
-		label25.addMouseListener(this);
-		
+//			3. Use setText() to add a position number to each light (0-24)//.
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(800,800);
 		frame.add(gamePanel);
 		
-			//4. Set the background of each light to LIGHT_GRAY
-			// - you will also have to set the background to opaque.
-			// - Use light.setOpaque(true);
+//			//4. Set the background of each light to LIGHT_GRAY
+//			// - you will also have to set the background to opaque.
+//			// - Use light.setOpaque(true);
+//
+//			//5. Add a mouseListener to each light
+//		
+//		
+//		//6. Add your panel to a frame
+//		murpdeur
+//
+//		//7. Set the size of the frame
 
-			//5. Add a mouseListener to each light
-		
-		
-		//6. Add your panel to a frame
-
-		//7. Set the size of the frame
-
+		frame.setVisible(true);
 	}
+	
+	
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
-		
+		JLabel labelClicked = (JLabel) e.getSource();
 		/** PART 2: TOGGLE NEIGHBORING LIGHTS **/
 		// 1. Get the light that was clicked on `(JLabel) e.getSource`
 
@@ -215,7 +129,7 @@ public class LightsOut implements MouseListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-
+		
 	}
 
 	@Override

@@ -10,7 +10,7 @@ import java.util.Random;
 public class Whack_A_Mole_ implements ActionListener {
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
-	JButton mole = new JButton();
+	JButton mole = new JButton("mole");
 	
 	
 	Random rand = new Random();
@@ -32,16 +32,30 @@ public class Whack_A_Mole_ implements ActionListener {
 		for(int i = 0; i < ran; i ++) {
 			JButton button = new JButton();
 			panel.add(button);
-			button.addActionListener(this);
 			button.setSize(100,70);
-		}
+			button.addActionListener(this);
 		
+			if(i == r) {
+				mole.addActionListener(this);
+				panel.add(mole);
+			}
+		
+		}
+		frame.pack();
+		frame.setSize(450,840);
 	}
 
 	
 	public void actionPerformed(ActionEvent e)
 	{
 		JButton buttonPressed = (JButton) e.getSource();
+		if(buttonPressed==mole) {
+			System.out.println("e");
+			frame.remove(panel);
+			panel = new JPanel();
+			frame.add(panel);
+			drawButtons(24);
+		}
 					
 
 	
