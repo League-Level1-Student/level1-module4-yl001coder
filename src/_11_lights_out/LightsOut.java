@@ -9,6 +9,9 @@ import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import java.util.Random;
 
 /**
  * 
@@ -24,7 +27,10 @@ public class LightsOut implements MouseListener {
 
 	JFrame frame = new JFrame();
 	JPanel gamePanel = new JPanel();
-	JLabel label1,label2,label3,label4,label5,label6,label7,label8,label9,label10,label11,label12,label13,label14,label15,label16,label17,label18,label19,label20,label21,label22,label23,label24,label25 = new JLabel();
+	JPanel panel = new JPanel();
+	JLabel light;
+	String e;
+	Random rand = new Random();
 	
 //labels! :D
 	public void run() {
@@ -34,12 +40,20 @@ public class LightsOut implements MouseListener {
 		gamePanel.setLayout(new GridLayout(5,5));
 		
 		for(int i = 0; i < 25; i ++) {
-			JLabel light = new JLabel();
+			light = new JLabel();
 			light.setText(String.valueOf(i));
-			light.setBackground(Color.LIGHT_GRAY);
-			light.addMouseListener(this);
-			gamePanel.add(light);
 			light.setOpaque(true);
+			light.addMouseListener(this);
+			if(rand.nextBoolean()==true)
+			{
+				light.setBackground(Color.LIGHT_GRAY);
+				gamePanel.add(light);
+			}
+			else {
+				light.setBackground(Color.WHITE);
+				gamePanel.add(light);
+			}
+			
 			
 		}
 		frame.pack();
@@ -60,6 +74,7 @@ public class LightsOut implements MouseListener {
 //			//5. Add a mouseListener to each light
 //		
 //		
+//		
 //		//6. Add your panel to a frame
 //		murpdeur
 //
@@ -74,6 +89,18 @@ public class LightsOut implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		
 		JLabel labelClicked = (JLabel) e.getSource();
+			this.e = labelClicked.getText();
+			makeMove(Integer.valueOf(this.e));
+		
+		for(int i = 0; i<25; i++) {
+			if((getLightAtPosition(i)).getBackground() == Color.LIGHT_GRAY) {
+		
+			}
+		}
+		for(int i = 0; i <4; i++) {
+			int f = rand.nextInt(25);
+
+		}
 		/** PART 2: TOGGLE NEIGHBORING LIGHTS **/
 		// 1. Get the light that was clicked on `(JLabel) e.getSource`
 
