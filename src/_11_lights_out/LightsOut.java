@@ -47,13 +47,11 @@ public class LightsOut implements MouseListener {
 			if(rand.nextBoolean()==true)
 			{
 				light.setBackground(Color.LIGHT_GRAY);
-				gamePanel.add(light);
 			}
 			else {
 				light.setBackground(Color.WHITE);
-				gamePanel.add(light);
 			}
-			
+			gamePanel.add(light);
 			
 		}
 		frame.pack();
@@ -91,16 +89,19 @@ public class LightsOut implements MouseListener {
 		JLabel labelClicked = (JLabel) e.getSource();
 			this.e = labelClicked.getText();
 			makeMove(Integer.valueOf(this.e));
-		
+		Boolean win = true;
 		for(int i = 0; i<25; i++) {
 			if((getLightAtPosition(i)).getBackground() == Color.LIGHT_GRAY) {
-		
+				
+			}
+			else {
+				win = false;
 			}
 		}
-		for(int i = 0; i <4; i++) {
-			int f = rand.nextInt(25);
-
+		if(win == true) {
+			JOptionPane.showMessageDialog(panel, "you win");
 		}
+		
 		/** PART 2: TOGGLE NEIGHBORING LIGHTS **/
 		// 1. Get the light that was clicked on `(JLabel) e.getSource`
 

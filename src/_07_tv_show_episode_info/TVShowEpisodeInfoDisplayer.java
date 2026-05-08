@@ -29,6 +29,7 @@ public class TVShowEpisodeInfoDisplayer implements ActionListener{
 		panel.add(button);
 		button.setText("submit");
 		frame.setSize(500,100);
+		field.setSize(50, 200);
 		
 		frame.setVisible(true);
 		button.setVisible(true);
