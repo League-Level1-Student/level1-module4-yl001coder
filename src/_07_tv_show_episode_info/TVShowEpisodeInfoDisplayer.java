@@ -24,6 +24,7 @@ public class TVShowEpisodeInfoDisplayer implements ActionListener{
 	JTextField field = new JTextField();
 	String results;
 	public TVShowEpisodeInfoDisplayer() {
+		
 		frame.add(panel);
 		panel.add(field);
 		panel.add(button);
