@@ -25,12 +25,15 @@ public class SimonSays extends KeyAdapter {
     private boolean simonSays = false;
     int points;
     Date timeAtStart;
+    Date timeAtEnd;
     JFrame frame;
     JPanel panel = new JPanel();
     // Complete steps 1 - 7 before you test
     // 1. Declare a JFrame variable
 
     public void run() {
+    	timeAtStart = new Date();
+    	
     	images.put(KeyEvent.VK_UP, "up.jpg");
     	images.put(KeyEvent.VK_DOWN, "down.jpg");
     	images.put(KeyEvent.VK_LEFT, "left.jpg");
@@ -49,8 +52,36 @@ public class SimonSays extends KeyAdapter {
     @Override
     public void keyPressed(KeyEvent e) {
     
-    	if(simonSays==true) {
+    	System.out.println(e.getKeyCode());
+    	System.out.println(imageIndex);
+    	if(simonSays&&e.getKeyCode()==imageIndex) {
+    		points++;
+    		Sound.speak("correct!");
+    		System.out.println("e");
+    	}
+    	else if(!simonSays&&e.getKeyCode()== imageIndex) {
+    		Sound.speak("simon did not say");
+    		points--;
+    		tries++;
+    		if(tries == 5) {
+    			JOptionPane.showMessageDialog(panel, "your score: " +points);
+    			System.exit(0);
+    		}
+    	
+    	}
+    	else if(!simonSays&&e.getKeyCode()!=imageIndex) {
+    		Sound.speak("good. simon did not say.");
+    		points++;
     		
+    	}
+    	else {
+    		Sound.speak("incorrect");
+    		points--;
+    		tries++;
+    		if(tries==5) {
+    			JOptionPane.showMessageDialog(panel,"your score: "+ points);
+    			System.exit(0);
+    		}
     	}
         // 15. Make a points variable to track the score.
     	
@@ -63,7 +94,7 @@ public class SimonSays extends KeyAdapter {
         // 19. If the keyCode doesn't match the imageIndex and "Simon didn't
         // say..."
 
-        // 20. Increase the value of score
+        // 20. Decrease the value of score
 
         // 21. Use the Sound.speak method to tell the user they were correct
 
@@ -72,10 +103,10 @@ public class SimonSays extends KeyAdapter {
         // 25. If tries is greater than 9 (or however many you want)...
 
         // 26. Tell the user their score
-    	JOptionPane.showMessageDialog(panel, points);
+    	
         // 27. Exit the program
 
-    	
+   
         // 23. Dispose of the frame
     	frame.dispose();
         // 24. Call the showImage method to show a new image
@@ -87,17 +118,18 @@ public class SimonSays extends KeyAdapter {
         // 5. Initialize your frame to a new JFrame()
     	frame = new JFrame();
     	frame.setVisible(true);
-    	
 
         // 6. Set the frame to visible
 
         // 7. Uncomment the following line to add a random image to your frame
     	frame.add(getNextRandomImage());
     	frame.setName("elsa");
+    	frame.pack();
     	frame.addKeyListener(this);
     	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	Random rand = new Random();
     	int e = rand.nextInt(2);
+    	System.out.println(e);
     	if(e == 1) {
     		Sound.speak("press this key");
     		simonSays = false;
